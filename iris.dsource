@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 40,
+  "id": "07b9aef7-d8d1-4640-925d-44037509a5ec",
+  "activities": [
+    {
+      "id": "c9a638c6-7714-4e0d-89e9-7f7447af0f8c",
+      "name": "iris",
+      "blocks": [
+        {
+          "id": "daf61e90-349d-4d29-a0b0-2eede1cdbca5",
+          "type": "Microsoft.DPrep.DataSourceBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "./iris.csv"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": "dba6fb06-4976-4955-af30-3fa554a4eae7",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "preview": false,
+            "columnHeadersMode": 0,
+            "separator": ",",
+            "fileEncoding": 0,
+            "skipRowsMode": 0,
+            "handleQuotedLineBreaks": false
+          }
+        },
+        {
+          "id": "04e03849-2d87-4e7c-b7b6-a03730cf9f05",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "columnId": "Column1",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column3",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column2",
+                "typeProperty": 3,
+                "typeArguments": {}
+              },
+              {
+                "columnId": "Column4",
+                "typeProperty": 3,
+                "typeArguments": {}
+              }
+            ]
+          }
+        },
+        {
+          "id": "f21cfc50-6f3d-4d73-9331-68f7cea180f0",
+          "type": "Microsoft.DPrep.SampleBlock",
+          "arguments": {
+            "samples": [
+              {
+                "sampleId": "ea27c911-024f-4a9a-9fe8-2436829e58d8",
+                "sampleRevision": "5c05e9f5-1d97-4be2-a7a0-ea5faafc79c4",
+                "sampleName": "Top 10000",
+                "sampleRunner": {
+                  "id": null,
+                  "type": 0
+                },
+                "remoteGeneratorProperties": {},
+                "sampleStrategy": 0,
+                "topArguments": {
+                  "sampleCount": 10000
+                },
+                "randomNArguments": {
+                  "sampleCount": 10000
+                },
+                "randomPercentArguments": {
+                  "probability": 0.1
+                },
+                "allowAutoGen": true,
+                "isDisabled": false
+              }
+            ],
+            "activeSample": "ea27c911-024f-4a9a-9fe8-2436829e58d8"
+          }
+        },
+        {
+          "id": "24709640-bbf6-4954-80fc-3f1d21f52e4d",
+          "type": "Microsoft.DPrep.HandlePathColumnBlock",
+          "arguments": {
+            "pathColumnOperation": 0
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "87b84983-d487-4391-8d90-4a5d664901eb",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "c9a638c6-7714-4e0d-89e9-7f7447af0f8c",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": false
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}

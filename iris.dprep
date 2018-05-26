@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 38,
+  "id": "03618a33-6c1b-42ae-85a5-c6c59736fae0",
+  "activities": [
+    {
+      "id": "56b8ff53-ec51-455e-a9fb-f36e6ea56fe3",
+      "name": "iris",
+      "blocks": [
+        {
+          "id": "a674be18-cdb9-4464-a9b4-5e6a88a27917",
+          "type": "Microsoft.DPrep.ReferenceActivityBlock",
+          "arguments": {
+            "reference": {
+              "referenceType": 1,
+              "referenceContainerPath": "./iris.dsource",
+              "referencedActivityId": "c9a638c6-7714-4e0d-89e9-7f7447af0f8c",
+              "referencedBranchId": null,
+              "referencedStep": null,
+              "anonymousSteps": null
+            }
+          }
+        },
+        {
+          "id": "2bc1c98a-7f9d-475c-8580-0272a7867e42",
+          "type": "Microsoft.DPrep.ColumnRenameBlock",
+          "arguments": {
+            "newColumnId": "Sepal Length",
+            "columnId": "Column1"
+          }
+        },
+        {
+          "id": "9b862343-4863-4852-b4ae-7ce4c9cf4d39",
+          "type": "Microsoft.DPrep.ColumnRenameBlock",
+          "arguments": {
+            "newColumnId": "Sepal Width",
+            "columnId": "Column2"
+          }
+        },
+        {
+          "id": "b2816db6-d4b3-4c75-9e23-e44e4051105c",
+          "type": "Microsoft.DPrep.ColumnRenameBlock",
+          "arguments": {
+            "newColumnId": "Petal Length",
+            "columnId": "Column3"
+          }
+        },
+        {
+          "id": "0e31d922-0e30-47af-bb8b-7052f17cea1a",
+          "type": "Microsoft.DPrep.ColumnRenameBlock",
+          "arguments": {
+            "newColumnId": "Petal Width",
+            "columnId": "Column4"
+          }
+        },
+        {
+          "id": "ef892400-a105-4dd4-aa2d-14b651f64920",
+          "type": "Microsoft.DPrep.ColumnRenameBlock",
+          "arguments": {
+            "newColumnId": "Species",
+            "columnId": "Column5"
+          }
+        },
+        {
+          "id": "a1d1e978-824e-4311-9cb5-c3a10ff929ee",
+          "type": "Microsoft.DPrep.FilterStringColumnBlock",
+          "arguments": {
+            "columnId": "Species",
+            "filterResult": 1,
+            "clauseRelationship": 1,
+            "clauses": [
+              {
+                "operator": 2
+              }
+            ]
+          }
+        }
+      ],
+      "inspectors": [
+        {
+          "id": "af118d72-c777-4562-87d8-60184c1a0d55",
+          "type": "Microsoft.DPrep.DataQualityInspector",
+          "arguments": {},
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "56b8ff53-ec51-455e-a9fb-f36e6ea56fe3",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        },
+        {
+          "id": "66378cca-9d5f-4d22-9b24-20ffd4db722b",
+          "type": "Microsoft.DPrep.ValueCountInspector",
+          "arguments": {
+            "columnId": "Species",
+            "numberOfTopValues": 6,
+            "descending": true,
+            "includeNulls": true,
+            "haloEffect": true
+          },
+          "reference": {
+            "referenceType": 0,
+            "referenceContainerPath": null,
+            "referencedActivityId": "56b8ff53-ec51-455e-a9fb-f36e6ea56fe3",
+            "referencedBranchId": null,
+            "referencedStep": {
+              "stepReferenceType": 1,
+              "referencedStepId": null,
+              "fallback": 1
+            },
+            "anonymousSteps": null
+          },
+          "isBackground": true
+        }
+      ]
+    }
+  ],
+  "runConfigurations": []
+}
