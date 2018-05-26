@@ -27,10 +27,12 @@ We need to create accounts for Machine Learning Experimentation and Model Manage
 
 
 ### QuickStart
-
+- Clone repository
+```sh
+ git clone https://github.com/jcdesousa/azure-ml-experiment.git
+ ```
 - Launch Workbench.
-
-- Create a new project. Click the plus sign to do that.
+- Add Existing Folder as Project
 - Select `local` as the execution environment, and `iris_sklearn_forest.py` as the script, and click **Run** button. 
   
 
@@ -80,7 +82,7 @@ az ml env show
 ```
 G o to the Azure Console and click on “Storage accounts”. Find the account that you got back from the command and get the connection string.
 
-#### ADD Storage Account Connection String to Environment
+#### Add Storage Account Connection String to Environment
 ```sh
 export AML_MODEL_DC_STORAGE="<connection string>"
 ```
@@ -103,6 +105,6 @@ az ml service keys realtime -i irisapp
 ```
 
 
-``azurecli
+```azurecli
 curl -X POST -H "Content-Type:application/json" --data "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}" http://127.0.0.1:32770/score
 ```
